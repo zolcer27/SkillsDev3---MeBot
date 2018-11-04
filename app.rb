@@ -8,7 +8,7 @@ require 'did_you_mean'  if development?
 require 'better_errors'  if development?
 require 'cocktail_library'
 
-configure :development do 
+configure :development do
   use BetterErrors::Middleware
   BetterErrors.application_root = __dir__
 end
@@ -30,9 +30,9 @@ get '/about' do
   if time.hour < 12
     greetings_AM.sample + ". A little about me. My app provides you with great event alternatives in town so that you don't get FOMO. You have visited times as of " + time.strftime("%Y-%m-%d %H:%M:%S")
   else
-    greetings_PM.sample + ". A little about me. My app provides you with great event alternatives in town so that you don't get FOMO. You have visited times as of " + time.strftime("%Y-%m-%d %H:%M:%S") 
+    greetings_PM.sample + ". A little about me. My app provides you with great event alternatives in town so that you don't get FOMO. You have visited times as of " + time.strftime("%Y-%m-%d %H:%M:%S")
   end
-end 
+end
 
 
 
@@ -66,7 +66,7 @@ get '/signup/:first_name/:number' do
   username = params[:first_name]
   usernum = params[:number]
   "Your username is " + username + "! Your number is " + usernum + "!"
-end 
+end
 
 
 post '/signup' do
@@ -105,7 +105,7 @@ def determine_response body
   facts = IO.readlines("facts.txt")
   crack = ["lol", "lolol", "haha", "jaja", "hohoyt", "FUNNY RIGHT!", "XD"]
   what_commands = ["what", "functions", "features", "actions", "purpose", "what can you do?", "tell me about you", "tell me your features", "do you have any cool functions?"]
-  
+
   if body == "hi" or "hello" or "hey" or "yo" or "wazzup" or "sup"
     "Hello! I'm Marshmellow. I won't let you get FOMO!"
   elsif body == "who"
@@ -127,21 +127,13 @@ def determine_response body
   else
     "I don't understand what you mean. You can say: hi, who, what, where, when, why."
   end
-end    
-  
-  
+end
 
 
-
-  
-  
-
-
-
-
-
- 
- 
-
+get "/test/conversation/:from/:body" do
+  if params[:body].nil? || params[:from].nil?
+    "No Message or Sender"
+    return
+  end
 
   

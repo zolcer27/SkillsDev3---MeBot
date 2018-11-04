@@ -41,25 +41,11 @@ def print_sum_two_numbers a, b
 end
 
 get '/incoming/sms' do
-  print_sum_two_numbers 20, 27
+  puts print_sum_two_numbers 20, 27
 end
 
 error 403 do
   "Access Forbidden"
-end
-
-
-secretcode = "chipmunk"
-
-get '/signup' do
-  if params[:code].nil?
-    403
-  else
-    if params[:code].to_s.downcase == secretcode
-    return erb :signup
-  else
-    403
-  end
 end
 
 get '/signup/:first_name/:number' do
@@ -68,23 +54,59 @@ get '/signup/:first_name/:number' do
   "Your username is " + username + "! Your number is " + usernum + "!"
 end
 
+secretcode = "chipmunk"
 
-post '/signup' do
-  if params[:secretcode].nil?
-    return 403
-  elsif params[:secretcode] == "chipmunk"
-    if params[:first_name] != "" && params[:number] != ""
-      "Wait for a sign from me ;)"
-    else "Please enter correct information"
+
+
+# post '/signup' do
+#   if params[:secretcode].nil?
+#     return 403
+#   elsif params[:secretcode] == "chipmunk"
+#     if params[:first_name] != "" && params[:number] != ""
+#       "Wait for a sign from me ;)"
+#     else
+#       "Please enter correct information"
+#     end
+#   else
+#     return 403
+#   end
+# end
+
+# post '/signup' do
+#   if params[:secretcode] == "chipmunk"
+#     if params[:first_name] != "" && params[:number] != ""
+#       "Wait for a sign from me ;)"
+#     else
+#       "Please enter correct information"
+#     end
+#   else
+#     return 403
+#   end
+# end
+#
+# get "/test/conversation/?:from?/?:body?" do
+#   if params[:body].nil? || params[:from].nil?
+#     return "No Message or Sender"
+#   end
+
+  get "/signup/:code" do
+    if params[:code] == secretcode
+      erb :signup
+    else
+      return 403
     end
-  else return 403
   end
-end
 
-get "/test/conversation/:from/:body" do
-  if params[:body].nil? || params[:from].nil?
-    "No Message or Sender"
-    return
+  post "/signup" do
+    if params[:code] == secretcode
+        if params[:first_name] != "" && params[:number] != ""
+          "you will receive a message soon from the bot"
+        else
+          "please fill the required fields"
+        end
+    else
+      return 403
+    end
   end
 
 #get '/test/conversation' do
@@ -96,8 +118,8 @@ get "/test/conversation/:from/:body" do
  #end
 
 
- determine_response params[:body]
-end
+ # determine_response params[:body]
+
 
 def determine_response body
   body = body.downcase.strip
@@ -106,34 +128,32 @@ def determine_response body
   crack = ["lol", "lolol", "haha", "jaja", "hohoyt", "FUNNY RIGHT!", "XD"]
   what_commands = ["what", "functions", "features", "actions", "purpose", "what can you do?", "tell me about you", "tell me your features", "do you have any cool functions?"]
 
-  if body == "hi" or "hello" or "hey" or "yo" or "wazzup" or "sup"
-    "Hello! I'm Marshmellow. I won't let you get FOMO!"
-  elsif body == "who"
-    "Hi there! This is a MeBot and my name is Marshmellow. To meet my creator, Zeynep, and learn some facts about her, say fact!"
-  elsif body == "what", "help", "help me"
-    "I am a bot that you can ask basic facts about my developer. I can also connect you to events she goes in your city."
-  elsif body == "where"
-    "My developer and I are based in Pittsburgh. So come say hi!"
-  elsif body == "when"
-    "Marshmellow was born in Fall 2018"
-  elsif body == "why"
-    "Marshmellow was made for a class project in Programming for Online Prototypes course"
-  elsif body == "joke"
-    return jokes.sample + crack.sample
-  elsif body == "haha", "lol", "jaja"
-    return ["funny right?", "i know i'm funny", "Wanna hear another joke? Just say: joke"].sample
-  elsif body == "fact", "facts"
-    return facts.sample
+  case body
+  when "hi","hello","hey","yo","wazzup","sup"
+    puts "Hello! I'm Marshmellow. I won't let you get FOMO!"
   else
-    "I don't understand what you mean. You can say: hi, who, what, where, when, why."
+    puts "Error HAHA"
   end
+
+  # if body == "hi" or "hello" or "hey" or "yo" or "wazzup" or "sup"
+  #   "Hello! I'm Marshmellow. I won't let you get FOMO!"
+  # elsif body == "who"
+  #   "Hi there! This is a MeBot and my name is Marshmellow. To meet my creator, Zeynep, and learn some facts about her, say fact!"
+  # elsif body == "what", "help", "help me"
+  #   "I am a bot that you can ask basic facts about my developer. I can also connect you to events she goes in your city."
+  # elsif body == "where"
+  #   "My developer and I are based in Pittsburgh. So come say hi!"
+  # elsif body == "when"
+  #   "Marshmellow was born in Fall 2018"
+  # elsif body == "why"
+  #   "Marshmellow was made for a class project in Programming for Online Prototypes course"
+  # elsif body == "joke"
+  #   return jokes.sample + crack.sample
+  # elsif body == "haha", "lol", "jaja"
+  #   return ["funny right?", "i know i'm funny", "Wanna hear another joke? Just say: joke"].sample
+  # elsif body == "fact", "facts"
+  #   return facts.sample
+  # else
+  #   "I don't understand what you mean. You can say: hi, who, what, where, when, why."
+  # end
 end
-
-
-get "/test/conversation/:from/:body" do
-  if params[:body].nil? || params[:from].nil?
-    "No Message or Sender"
-    return
-  end
-
-  

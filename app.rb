@@ -133,7 +133,7 @@ def determine_response body
   when "hi","hello","hey","yo","wazzup","sup"
     puts "Hello! I'm Marshmellow. I won't let you get FOMO!"
   else
-    puts "Error HAHA"
+    puts "Error"
   end
 
   # if body == "hi" or "hello" or "hey" or "yo" or "wazzup" or "sup"

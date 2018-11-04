@@ -3,6 +3,7 @@
 
 require 'sinatra'
 require "sinatra/reloader" if development?
+require 'twilio-ruby'
 
 require 'did_you_mean'  if development?
 require 'better_errors'  if development?

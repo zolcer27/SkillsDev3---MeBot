@@ -104,6 +104,7 @@ secretcode = "chipmunk"
   end
 
   post "/signup" do
+
     if params[:code] == secretcode
         if params[:first_name] != "" && params[:number] != ""
           "Hey!" +params[:first_name] +"you will receive a message on"+params[:number]+"soon from the bot"
@@ -113,15 +114,17 @@ secretcode = "chipmunk"
     else
       return 403
     end
+
     client = Twilio::REST::Client.new ENV["TWILIO_ACCOUNT_SID"], ENV["TWILIO_AUTH_TOKEN"]
+  #include a message here
+  message = "Hi " + params[:first_name] + ",welcome to Marshmellow MeBot! I can respond to who, what, where, when and why. If you're stuck, type help."
 
-    message = "Hi" + params[:first_name] + ", welcome to Marshmellow MeBot! I can respond to who, what, where, when and why. If you're stuck, type help."
-
-    client.api.account.messages.create(
-        from: ENV["TWILIO_FROM"],
-        to: params[:number],
-        body: message
-      )
+  #this will send a message from any endpoint
+  client.api.account.messages.create(
+  from: ENV["TWILIO_FROM"],
+  to: params[:number],
+  body: message
+  )
   end
 
 #get '/test/conversation' do

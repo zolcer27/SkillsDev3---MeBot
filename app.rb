@@ -132,7 +132,8 @@ def determine_response body
   case body
   when "hi","hello","hey","yo","wazzup","sup"
     puts "Hello! I'm Marshmellow. I won't let you get FOMO!"
-  else
+  when "who"
+  else "Hi there! This is a MeBot and my name is Marshmellow. To meet my creator, Zeynep, and learn some facts about her, say fact!"
     puts "Error haha"
   end
 

@@ -47,7 +47,7 @@ def print_sum_two_numbers a, b
 end
 
 get "/sms/incoming" do
-  session["counter"] ||= 1
+  session["counter"] ||= 2
   body = params[:Body] || ""
   sender = params[:From] || ""
 

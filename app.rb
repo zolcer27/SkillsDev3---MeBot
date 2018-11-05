@@ -174,48 +174,48 @@ def determine_response body
   what_commands = ["what", "functions", "features", "actions", "purpose", "what can you do?", "tell me about you", "tell me your features", "do you have any cool functions?"]
 
   # return "In Body"
-  # case body
-  # when "hi","hello","hey","yo","wazzup","sup"
-  #   return "Hello! I'm Marshmellow. I won't let you get FOMO!"
-  # when "who"
-  #   return "Hi there! This is a MeBot and my name is Marshmellow. To meet my creator, Zeynep, and learn some facts about her, say fact!"
-  # when "what", "help", "help me"
-  #   "I am a bot that you can ask basic facts about my developer. I can also connect you to events she goes in your city."
-  # when "where"
-  #   "My developer and I are based in Pittsburgh. So come say hi!"
-  # when "when"
-  #   "Marshmellow was born in Fall 2018"
-  # when "why"
-  #   "Marshmellow was made for a class project in Programming for Online Prototypes course"
-  # when "joke"
-  #   return jokes.sample + crack.sample
-  # when "haha", "lol", "jaja"
-  #   return ["funny right?", "i know i'm funny", "Wanna hear another joke? Just say: joke"].sample
-  # when "fact", "facts"
-  #   return facts.sample
-  # else
-  #   "I don't understand what you mean. You can say: hi, who, what, where, when, why."
-  # end
-
-  if body == "hi" or "hello" or "hey" or "yo" or "wazzup" or "sup"
-    "Hello! I'm Marshmellow. I won't let you get FOMO!"
-  elsif body == "who"
-    "Hi there! This is a MeBot and my name is Marshmellow. To meet my creator, Zeynep, and learn some facts about her, say fact!"
-  elsif body == "what", "help", "help me"
+  case body
+  when "hi","hello","hey","yo","wazzup","sup"
+    return "Hello! I'm Marshmellow. I won't let you get FOMO!"
+  when "who"
+    return "Hi there! This is a MeBot and my name is Marshmellow. To meet my creator, Zeynep, and learn some facts about her, say fact!"
+  when "what", "help", "help me"
     "I am a bot that you can ask basic facts about my developer. I can also connect you to events she goes in your city."
-  elsif body == "where"
+  when "where"
     "My developer and I are based in Pittsburgh. So come say hi!"
-  elsif body == "when"
+  when "when"
     "Marshmellow was born in Fall 2018"
-  elsif body == "why"
+  when "why"
     "Marshmellow was made for a class project in Programming for Online Prototypes course"
-  elsif body == "joke"
+  when "joke"
     return jokes.sample + crack.sample
-  elsif body == "haha", "lol", "jaja"
+  when "haha", "lol", "jaja"
     return ["funny right?", "i know i'm funny", "Wanna hear another joke? Just say: joke"].sample
-  elsif body == "fact", "facts"
+  when "fact", "facts"
     return facts.sample
   else
     "I don't understand what you mean. You can say: hi, who, what, where, when, why."
   end
+
+  # if body == "hi" or "hello" or "hey" or "yo" or "wazzup" or "sup"
+  #   "Hello! I'm Marshmellow. I won't let you get FOMO!"
+  # elsif body == "who"
+  #   "Hi there! This is a MeBot and my name is Marshmellow. To meet my creator, Zeynep, and learn some facts about her, say fact!"
+  # elsif body == "what", "help", "help me"
+  #   "I am a bot that you can ask basic facts about my developer. I can also connect you to events she goes in your city."
+  # elsif body == "where"
+  #   "My developer and I are based in Pittsburgh. So come say hi!"
+  # elsif body == "when"
+  #   "Marshmellow was born in Fall 2018"
+  # elsif body == "why"
+  #   "Marshmellow was made for a class project in Programming for Online Prototypes course"
+  # elsif body == "joke"
+  #   return jokes.sample + crack.sample
+  # elsif body == "haha", "lol", "jaja"
+  #   return ["funny right?", "i know i'm funny", "Wanna hear another joke? Just say: joke"].sample
+  # elsif body == "fact", "facts"
+  #   return facts.sample
+  # else
+  #   "I don't understand what you mean. You can say: hi, who, what, where, when, why."
+  # end
 end

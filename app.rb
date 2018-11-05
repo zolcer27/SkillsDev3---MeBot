@@ -67,9 +67,9 @@ get "/sms/incoming" do
       m.body( message )
 
       # add media if it is defined
-      unless media.nil?
-        m.media( media )
-      end
+      # unless media.nil?
+      #   m.media( media )
+      # end
     end
   end
 

@@ -173,14 +173,15 @@ def determine_response body
   crack = ["lol", "lolol", "haha", "jaja", "hohoyt", "FUNNY RIGHT!", "XD"]
   what_commands = ["what", "functions", "features", "actions", "purpose", "what can you do?", "tell me about you", "tell me your features", "do you have any cool functions?"]
 
-  case body
-  when "hi","hello","hey","yo","wazzup","sup"
-    puts "Hello! I'm Marshmellow. I won't let you get FOMO!"
-  when "who"
-    puts "Hi there! This is a MeBot and my name is Marshmellow. To meet my creator, Zeynep, and learn some facts about her, say fact!"
-  else
-    puts "Error haha"
-  end
+  return "In Body"
+  # case body
+  # when "hi","hello","hey","yo","wazzup","sup"
+  #   puts "Hello! I'm Marshmellow. I won't let you get FOMO!"
+  # when "who"
+  #   puts "Hi there! This is a MeBot and my name is Marshmellow. To meet my creator, Zeynep, and learn some facts about her, say fact!"
+  # else
+  #   puts "Error haha"
+  # end
 
   # if body == "hi" or "hello" or "hey" or "yo" or "wazzup" or "sup"
   #   "Hello! I'm Marshmellow. I won't let you get FOMO!"

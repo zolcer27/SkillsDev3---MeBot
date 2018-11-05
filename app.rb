@@ -171,20 +171,20 @@ secretcode = "chipmunk"
  # determine_response params[:body]
 
 
-# def determine_response body
-#   body = body.downcase.strip
-#   jokes = IO.readlines("jokes.txt")
-#   facts = IO.readlines("facts.txt")
-#   crack = ["lol", "lolol", "haha", "jaja", "hohoyt", "FUNNY RIGHT!", "XD"]
-#   what_commands = ["what", "functions", "features", "actions", "purpose", "what can you do?", "tell me about you", "tell me your features", "do you have any cool functions?"]
-#
-#   case body
-#   when "hi","hello","hey","yo","wazzup","sup"
-#     puts "Hello! I'm Marshmellow. I won't let you get FOMO!"
-#   when "who"
-#   else "Hi there! This is a MeBot and my name is Marshmellow. To meet my creator, Zeynep, and learn some facts about her, say fact!"
-#     puts "Error haha"
-#   end
+def determine_response body
+  body = body.downcase.strip
+  jokes = IO.readlines("jokes.txt")
+  facts = IO.readlines("facts.txt")
+  crack = ["lol", "lolol", "haha", "jaja", "hohoyt", "FUNNY RIGHT!", "XD"]
+  what_commands = ["what", "functions", "features", "actions", "purpose", "what can you do?", "tell me about you", "tell me your features", "do you have any cool functions?"]
+
+  case body
+  when "hi","hello","hey","yo","wazzup","sup"
+    puts "Hello! I'm Marshmellow. I won't let you get FOMO!"
+  when "who"
+  else "Hi there! This is a MeBot and my name is Marshmellow. To meet my creator, Zeynep, and learn some facts about her, say fact!"
+    puts "Error haha"
+  end
 
   # if body == "hi" or "hello" or "hey" or "yo" or "wazzup" or "sup"
   #   "Hello! I'm Marshmellow. I won't let you get FOMO!"
@@ -207,4 +207,4 @@ secretcode = "chipmunk"
   # else
   #   "I don't understand what you mean. You can say: hi, who, what, where, when, why."
   # end
-# end
+end

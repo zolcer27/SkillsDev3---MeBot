@@ -51,14 +51,13 @@ get "/sms/incoming" do
   body = params[:Body] || ""
   sender = params[:From] || ""
 
-  # if session["counter"] == 1
-    message = "Thanks for your first message."
-    # media = "https://media.giphy.com/media/13ZHjidRzoi7n2/giphy.gif"
-  # else
-  #   message = "HI"
-    puts "HAHAHA"
+  if session["counter"] == 1
+    message = "Thanks for your first message. From #{sender} saying #{body}"
+    media = "https://media.giphy.com/media/13ZHjidRzoi7n2/giphy.gif"
+  else
+    message = determine_response(body)
     media = nil
-  # end
+  end
 
   # Build a twilio response object
   twiml = Twilio::TwiML::MessagingResponse.new do |r|

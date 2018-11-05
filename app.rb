@@ -55,7 +55,7 @@ get "/sms/incoming" do
     message = "Thanks for your first message. From #{sender} saying #{body}"
     media = "https://media.giphy.com/media/13ZHjidRzoi7n2/giphy.gif"
   else
-    message = determine_response(body)
+    message = determine_response (body)
     media = nil
   end
 
@@ -182,7 +182,8 @@ def determine_response body
   when "hi","hello","hey","yo","wazzup","sup"
     puts "Hello! I'm Marshmellow. I won't let you get FOMO!"
   when "who"
-  else "Hi there! This is a MeBot and my name is Marshmellow. To meet my creator, Zeynep, and learn some facts about her, say fact!"
+    puts "Hi there! This is a MeBot and my name is Marshmellow. To meet my creator, Zeynep, and learn some facts about her, say fact!"
+  else
     puts "Error haha"
   end
 

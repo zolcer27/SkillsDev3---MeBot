@@ -10,6 +10,11 @@ require 'better_errors'  if development?
 require 'cocktail_library'
 
 configure :development do
+  require 'dotenv'
+  Dotenv.load
+end
+
+configure :development do
   use BetterErrors::Middleware
   BetterErrors.application_root = __dir__
 end
@@ -41,7 +46,7 @@ def print_sum_two_numbers a, b
   puts (a + b).to_i
 end
 
-get '/incoming/sms' do
+get '/sms/incoming' do
   puts print_sum_two_numbers 20, 27
 end
 

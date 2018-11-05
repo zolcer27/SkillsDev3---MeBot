@@ -15,6 +15,7 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     did_you_mean (1.2.1)
+    dotenv (2.5.0)
     erubi (1.7.1)
     faraday (0.15.3)
       multipart-post (>= 1.2, < 3)
@@ -62,6 +63,7 @@ DEPENDENCIES
   better_errors
   cocktail_library
   did_you_mean
+  dotenv
   json
   rake
   sinatra
